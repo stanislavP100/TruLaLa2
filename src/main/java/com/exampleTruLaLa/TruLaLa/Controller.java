@@ -6,17 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Optional;
 
-@org.springframework.stereotype.Controller
+@RestController
 public class Controller {
 
 @Autowired
     private RepositoryGoods repositoryGoods;
+
+
 
     @GetMapping ("/")
   public   String cont(Map<String,Object>map )
@@ -58,35 +61,10 @@ public class Controller {
         map.put("jsonString", mainJsonObject.toString());
         System.out.println(sampleArr.toString());
 
-        return "getPage";
+        return mainJsonObject.toString();
     }
 
-    @GetMapping ("/post")
-    public   String methodGetForPost() throws Exception {
 
-        return "index";
-    }
-
-    @PostMapping("/post")
-
-    public String methodPost(@RequestParam String name,
-                             @RequestParam(value = "price") Float price){
-        System.out.println(name+"    "+price);
-
-        Goods goods=new Goods();
-
-        goods.setName(name);
-
-       goods.setPrice(price);
-
-
-
-        repositoryGoods.save(goods);
-
-
-
-        return "index";
-    }
 
 public static String makeJson() throws Exception
 {
