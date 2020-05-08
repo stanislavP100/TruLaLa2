@@ -14,6 +14,9 @@ public class ControllerPost {
     @Autowired
     private RepositoryGoods repositoryGoods;
 
+    @Autowired
+    private RepositoryElektroTools repositoryElektroTools;
+
     @GetMapping("/post")
     public   String methodGetForPost() throws Exception {
 
@@ -23,21 +26,30 @@ public class ControllerPost {
     @PostMapping("/post")
 
     public String methodPost(@RequestParam String name,
-                             @RequestParam(value = "price") Float price){
-        System.out.println(name+"    "+price);
-
-        Goods goods=new Goods();
-
-        goods.setName(name);
-
-        goods.setPrice(price);
+                             @RequestParam(value = "price") Float price,
+                             @RequestParam(value = "category") String category){
+        System.out.println(name+"    "+price+"    "+category);
 
 
+        if(category.equals("goods")) {
+    Goods goods = new Goods();
 
-        repositoryGoods.save(goods);
+    goods.setName(name);
 
+    goods.setPrice(price);
 
+    repositoryGoods.save(goods);
+}
 
+        if(category.equals("electroToos")) {
+            ElectroTools electroTools = new ElectroTools();
+
+            electroTools.setName(name);
+
+            electroTools.setPrice(price);
+
+            repositoryElektroTools.save(electroTools);
+        }
         return "index";
     }
 }
