@@ -41,7 +41,7 @@ public class ControllerPost {
     repositoryGoods.save(goods);
 }
 
-        if(category.equals("electroToos")) {
+        if(category.equals("electroTools")) {
             ElectroTools electroTools = new ElectroTools();
 
             electroTools.setName(name);
