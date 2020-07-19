@@ -21,11 +21,26 @@ public class Goods {
     @Column(name="price")
     private  Float price;
 
+    @Column(name="imagePath")
+    private  String imagePath;
+
+
     public Goods() {}
-    public Goods(Long id, String name, Float price) {
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public Goods(Long id, String name, Float price, String imagePath) {
         this.id=id;
         this.name=name;
         this.price=price;
+        this.imagePath=imagePath;
+
     }
 
     public Goods(Goods good)

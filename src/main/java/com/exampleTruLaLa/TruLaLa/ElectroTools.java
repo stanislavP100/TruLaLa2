@@ -19,14 +19,26 @@ public class ElectroTools {
     @Column(name="price")
     private  Float price;
 
+    @Column(name="imagePath")
+    private  String imagePath;
+
     public ElectroTools() {
     }
 
-    public ElectroTools (Long id, String name, Float price){
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public ElectroTools (Long id, String name, Float price, String imagePath){
 
         this.id=id;
         this.name=name;
         this.price=price;
+        this.imagePath=imagePath;
 
     }
 

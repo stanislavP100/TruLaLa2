@@ -92,18 +92,4 @@ public class Controller {
         return mainJsonObject.toString();
     }
 
-
-
-public static String makeJson() throws Exception
-{
-    JSONObject sampleObject = new JSONObject();
-    sampleObject.put("name", "Stackabuser");
-    sampleObject.put("age", 35);
-
-
-    Files.write(Paths.get("jsonFile.json"), sampleObject.toString().getBytes());
-
-    return sampleObject.toString();
-}
-
 }
