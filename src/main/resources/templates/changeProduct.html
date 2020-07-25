@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Change Product</title>
@@ -8,13 +8,13 @@
 
 
 <form method="post" action="/post" enctype="multipart/form-data">
-    <input type="text"  name="name"  placeholder="name" title="name" />
+    <input type="text"  th:value="${productToChange.name}"  name="name"  placeholder="name" title="name" />
 
-    <input type="text" name="price" placeholder="price" title="price"/>
+    <input type="text" th:value="${productToChange.price}" name="price" placeholder="price" title="price"/>
 
-    <input type="text" name="category" placeholder="category" title="category"/>
+    <input type="file" th:value="${productToChange.imagePath}" name="file"/>
 
-    <input type="file" name="file"/>
+    <img th:src="'images/' + ${productToChange.imagePath}" width="80px" height="80px"/>
 
     <button type="submit">Change</button>
 </form>
