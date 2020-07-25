@@ -98,4 +98,12 @@ public class ControllerPost {
 
         return "index";
     }
+
+    @PostMapping("/deleteProduct")
+    public String deleteProduct(@RequestParam(name ="id") int id)
+
+    {
+        System.out.println("OOOOOOOOOOOOOOOOPPPPPPPPPPAAAAAAAAAAA" + id);
+        return "index";
+    }
 }
