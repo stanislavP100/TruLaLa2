@@ -48,6 +48,7 @@ public class Controller {
                 sampleObject.put("name", goods.get().getName());
                 sampleObject.put("price", goods.get().getPrice());
                 sampleObject.put("id", goods.get().getId());
+                sampleObject.put("image", goods.get().getImagePath());
 
                 sampleArr.put(sampleObject);
             }
@@ -70,6 +71,7 @@ public class Controller {
                 sampleObject.put("name", goods.get().getName());
                 sampleObject.put("price", goods.get().getPrice());
                 sampleObject.put("id", goods.get().getId());
+                sampleObject.put("image", goods.get().getImagePath());
 
                 electroToolsArr.put(sampleObject);
             }
