@@ -26,9 +26,12 @@ public class FileSystemStorageService implements StorageService {
     @Autowired
     public FileSystemStorageService() {
 
+        File ff=new File("");
+
+
         File file1=new File("images");
         file1.mkdir();
-        this.rootLocation = Paths.get("/root/Docs/PHP projects/TruLaLa/src/main/resources/static/images/");
+        this.rootLocation = Paths.get(ff.getAbsolutePath()+"/src/main/resources/static/images/");
     }
 
     @Override

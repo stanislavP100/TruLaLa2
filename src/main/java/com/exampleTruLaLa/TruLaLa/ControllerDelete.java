@@ -81,4 +81,14 @@ public class ControllerDelete {
         return "index";
     }
 
+    @PostMapping("/deleteProduct")
+
+    public String deleteProductPost(Model model){
+
+        repositoryGoods.delete(product);
+        model.addAttribute("electro", repositoryGoods.findAll());
+
+        return "index";
+    }
+
 }
