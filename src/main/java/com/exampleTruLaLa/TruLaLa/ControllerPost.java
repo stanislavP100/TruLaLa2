@@ -61,7 +61,7 @@ public class ControllerPost {
 
             if(file.isEmpty()){
 
-                goods.setImagePath("index.jpeg");
+                goods.setImagePath("bol.jpeg");
             }
             else
                 goods.setImagePath(file.getOriginalFilename());
