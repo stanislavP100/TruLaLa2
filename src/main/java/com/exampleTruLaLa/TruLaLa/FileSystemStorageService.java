@@ -25,10 +25,13 @@ public class FileSystemStorageService implements StorageService {
 
     @Autowired
     public FileSystemStorageService() {
+WebConfigurer wc=new
+        WebConfigurer();
 
-        File file1=new File("newFile");
-        file1.mkdir();
-        this.rootLocation = Paths.get("src/main/resources/static/images");
+        String str=wc.getUploadDirectory2();
+        System.out.println(str+"   ooopppaaaaaa");
+
+        this.rootLocation = Paths.get(str);
     }
 
     @Override
