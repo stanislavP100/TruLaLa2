@@ -1,42 +1,82 @@
 package com.exampleTruLaLa.TruLaLa;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.support.ServletContextResource;
+import sun.misc.IOUtils;
+
+import javax.servlet.ServletContext;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 public class ControllerImage {
 
-    @Autowired
-    private RepositoryGoods repositoryGoods;
 
     private  String imagePath;
 
+    @GetMapping(value = "/get-image", produces = MediaType.IMAGE_JPEG_VALUE)
+    public @ResponseBody byte[] getImageWithMediaType() throws IOException {
 
-    @GetMapping("/image")
-
-    public   String methodGetForImage(Model model) throws Exception {
-
-        model.addAttribute("imagePath", imagePath);
-
-        return "getImage";
+        //   final InputStream in = getClass().getResourceAsStream("/static/persik.jpeg");
+        //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        return Files.readAllBytes(Paths.get("/root/Images/index.png"));//!!! Rabotae!!!!!!!!!!!!!!!!!!
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //   System.out.println(in);
+        // return IOUtils.toByteArray(in);
     }
 
- @RequestMapping("/image/{img}")
-    public String methodGetFo(
-             @PathVariable(value = "img") String image4,
-            String img, Model model) throws Exception {
 
+//
+//    @GetMapping("/image")
+//
+//    public   String methodGetForImage(Model model) throws Exception {
+//
+//        System.out.println("Method get");
+//        model.addAttribute("imagePath", imagePath);
+//
+//        return "getImage";
+//    }
 
-imagePath=img;
-
-        model.addAttribute("imagePath", img);
-
-        return "redirect:/image";
-    }
+// @RequestMapping("/image/{img}")
+//    public String methodGetFo(
+//             @PathVariable(value = "img") String image4,
+//            String img, Model model) throws Exception {
+//
+//     System.out.println("Requesr "+ image4+"   " +  img);
+//imagePath=img;
+//
+//        model.addAttribute("imagePath", img);
+//
+//        return "redirect:/image";
+//    }
+//
+// @RequestMapping("/image/{img}")
+//    public String methodGetFo(
+//             @PathVariable(value = "img") String image4,
+//            String img, Model model) throws Exception {
+//
+//     System.out.println("Requesr "+ image4+"   " +  img);
+//imagePath=img;
+//
+//
+//String path="/root/Images/persik.jpeg";
+//     Path pa= Paths.get(path);
+//
+//     byte []data= Files.readAllBytes(pa);
+//
+//            model.addAttribute("imageByte", data);
+//     System.out.println(data.length);
+//
+//     return "redirect:/image";
+//    }
 
 
 }

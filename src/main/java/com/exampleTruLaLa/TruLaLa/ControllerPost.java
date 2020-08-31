@@ -33,11 +33,7 @@ public class ControllerPost {
     @GetMapping("/pos")
     public   String methodGetForPost(Model model) throws Exception {
 
-        model.addAttribute("electro", repositoryGoods.findAll()); //storageService.loadAll());//.map(
-//                path -> MvcUriComponentsBuilder.fromMethodName(ControllerPost.class,
-//                        "serveFile", path.getFileName().toString()).build().toUri().toString())
-//                .collect(Collectors.toList()));
-
+        model.addAttribute("electro", repositoryGoods.findAll());
 
         return "index";
     }
