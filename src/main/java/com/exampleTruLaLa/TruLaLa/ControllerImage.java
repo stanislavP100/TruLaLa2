@@ -26,11 +26,14 @@ public class ControllerImage {
     public @ResponseBody byte[] getImageWithMediaType(@RequestParam String image) throws IOException {
 
         System.out.println(image);
+        WebConfigurer wc=new
+                WebConfigurer();
 
+        String str=wc.getUploadDirectory2();
         //   final InputStream in = getClass().getResourceAsStream("/static/persik.jpeg");
         //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         /////// http://localhost:8080/get-image?im=bol.jpeg
-        return Files.readAllBytes(Paths.get("/root/Images/"+image));//!!! Rabotae!!!!!!!!!!!!!!!!!!
+        return Files.readAllBytes(Paths.get(str +"/" + image));//!!! Rabotae!!!!!!!!!!!!!!!!!!
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //   System.out.println(in);
         // return IOUtils.toByteArray(in);
