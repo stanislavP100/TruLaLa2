@@ -29,7 +29,7 @@ WebConfigurer wc=new
         WebConfigurer();
 
         String str=wc.getUploadDirectory2();
-        System.out.println(str+"   ooopppaaaaaa");
+
 
         this.rootLocation = Paths.get(str);
     }

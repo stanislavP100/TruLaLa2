@@ -23,11 +23,14 @@ public class ControllerImage {
     private  String imagePath;
 
     @GetMapping(value = "/get-image", produces = MediaType.IMAGE_JPEG_VALUE)
-    public @ResponseBody byte[] getImageWithMediaType() throws IOException {
+    public @ResponseBody byte[] getImageWithMediaType(@RequestParam String image) throws IOException {
+
+        System.out.println(image);
 
         //   final InputStream in = getClass().getResourceAsStream("/static/persik.jpeg");
         //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        return Files.readAllBytes(Paths.get("/root/Images/index.png"));//!!! Rabotae!!!!!!!!!!!!!!!!!!
+        /////// http://localhost:8080/get-image?im=bol.jpeg
+        return Files.readAllBytes(Paths.get("/root/Images/"+image));//!!! Rabotae!!!!!!!!!!!!!!!!!!
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //   System.out.println(in);
         // return IOUtils.toByteArray(in);
