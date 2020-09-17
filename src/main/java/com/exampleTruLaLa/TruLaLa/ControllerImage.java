@@ -1,5 +1,6 @@
 package com.exampleTruLaLa.TruLaLa;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.*;
@@ -23,7 +24,7 @@ public class ControllerImage {
     private  String imagePath;
 
     @GetMapping(value = "/get-image", produces = MediaType.IMAGE_JPEG_VALUE)
-    public @ResponseBody byte[] getImageWithMediaType(@RequestParam String image) throws IOException {
+    public @ResponseBody String getImageWithMediaType(@RequestParam String image) throws IOException {
 
         System.out.println(image);
         WebConfigurer wc=new
@@ -33,7 +34,8 @@ public class ControllerImage {
         //   final InputStream in = getClass().getResourceAsStream("/static/persik.jpeg");
         //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         /////// http://localhost:8080/get-image?im=bol.jpeg
-        return Files.readAllBytes(Paths.get(str +"/" + image));//!!! Rabotae!!!!!!!!!!!!!!!!!!
+        System.out.println(Base64.encodeBase64URLSafeString( Files.readAllBytes(Paths.get(str +"/" + image))));
+        return Base64.encodeBase64URLSafeString( Files.readAllBytes(Paths.get(str +"/" + image)));//!!! Rabotae!!!!!!!!!!!!!!!!!!
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //   System.out.println(in);
         // return IOUtils.toByteArray(in);
