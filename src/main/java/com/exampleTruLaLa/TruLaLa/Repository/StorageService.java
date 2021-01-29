@@ -1,4 +1,4 @@
-package com.exampleTruLaLa.TruLaLa;
+package com.exampleTruLaLa.TruLaLa.Repository;
 
 import org.springframework.web.multipart.MultipartFile;
 

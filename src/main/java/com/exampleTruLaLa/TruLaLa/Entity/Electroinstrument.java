@@ -1,14 +1,11 @@
-package com.exampleTruLaLa.TruLaLa;
+package com.exampleTruLaLa.TruLaLa.Entity;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
-import java.awt.*;
-import java.util.Optional;
 
 @Entity
-@Table(name="goods", catalog = "truladb")
-public class Goods {
+@Table(name="electroinstrument", catalog = "truladb")
+public class Electroinstrument {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,8 +21,28 @@ public class Goods {
     @Column(name="imagePath")
     private  String imagePath;
 
+    private String categoty ="electroinstrument";
 
-    public Goods() {}
+    public Electroinstrument(String name, Float price, String imagePath, String category) {
+        this.name = name;
+        this.price = price;
+        this.imagePath = imagePath;
+
+    }
+
+    public String getCategoty() {
+        return categoty;
+    }
+
+    public void setCategoty(String categoty) {
+        this.categoty = categoty;
+    }
+
+    public static String getClassName(){
+        return "Electroinstrument";
+    }
+
+    public Electroinstrument() {}
 
     public String getImagePath() {
         return imagePath;
@@ -35,7 +52,7 @@ public class Goods {
         this.imagePath = imagePath;
     }
 
-    public Goods(Long id, String name, Float price, String imagePath) {
+    public Electroinstrument(Long id, String name, Float price, String imagePath) {
         this.id=id;
         this.name=name;
         this.price=price;
@@ -43,7 +60,7 @@ public class Goods {
 
     }
 
-    public Goods(Goods good)
+    public Electroinstrument(Electroinstrument good)
     {
         this.id=good.id;
         this.name=good.name;
@@ -73,7 +90,7 @@ public class Goods {
 
     @Override
     public String toString() {
-        return "Goods{" +
+        return "Electroinstrument{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +

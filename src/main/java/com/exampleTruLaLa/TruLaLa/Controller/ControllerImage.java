@@ -1,5 +1,6 @@
-package com.exampleTruLaLa.TruLaLa;
+package com.exampleTruLaLa.TruLaLa.Controller;
 
+import com.exampleTruLaLa.TruLaLa.WebConfigurer;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

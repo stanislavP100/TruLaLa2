@@ -1,9 +1,7 @@
-package com.exampleTruLaLa.TruLaLa;
+package com.exampleTruLaLa.TruLaLa.Repository;
 
+import com.exampleTruLaLa.TruLaLa.Entity.Goods;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
-
-import java.util.Optional;
 
 public interface RepositoryGoods extends JpaRepository<Goods, Long> {
 
