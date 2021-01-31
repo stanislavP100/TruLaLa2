@@ -23,6 +23,29 @@ public class Electroinstrument {
 
     private String categoty ="electroinstrument";
 
+    @Column
+    private  String description;
+
+    @Column
+    private String pidCategory;
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPidCategory() {
+        return pidCategory;
+    }
+
+    public void setPidCategory(String pidCategory) {
+        this.pidCategory = pidCategory;
+    }
+
     public Electroinstrument(String name, Float price, String imagePath, String category) {
         this.name = name;
         this.price = price;
@@ -58,13 +81,6 @@ public class Electroinstrument {
         this.price=price;
         this.imagePath=imagePath;
 
-    }
-
-    public Electroinstrument(Electroinstrument good)
-    {
-        this.id=good.id;
-        this.name=good.name;
-        this.price=good.price;
     }
 
     public Long getId() {

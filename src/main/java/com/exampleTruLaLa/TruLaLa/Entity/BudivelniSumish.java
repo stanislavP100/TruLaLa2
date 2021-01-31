@@ -20,8 +20,34 @@ public class BudivelniSumish {
     @Column(name="imagePath")
     private  String imagePath;
 
+    @Column
     private  String categoty ="budsumishi";
 
+    @Column
+    private  String description;
+
+    @Column
+    private String pidCategory;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPidCategory() {
+        return pidCategory;
+    }
+
+    public void setPidCategory(String pidCategory) {
+        this.pidCategory = pidCategory;
+    }
 
     public BudivelniSumish(String name, Float price, String imagePath, String category) {
         this.name = name;
@@ -58,13 +84,6 @@ public class BudivelniSumish {
         this.price=price;
         this.imagePath=imagePath;
 
-    }
-
-    public BudivelniSumish(BudivelniSumish good)
-    {
-        this.id=good.id;
-        this.name=good.name;
-        this.price=good.price;
     }
 
     public Long getId() {

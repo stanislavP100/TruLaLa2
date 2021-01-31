@@ -22,6 +22,28 @@ public class SadGorod {
 
     private String categoty ="sadgorod";
 
+    @Column
+    private  String description;
+
+    @Column
+    private String pidCategory;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPidCategory() {
+        return pidCategory;
+    }
+
+    public void setPidCategory(String pidCategory) {
+        this.pidCategory = pidCategory;
+    }
+
     public SadGorod(String name, Float price, String imagePath, String category) {
         this.name = name;
         this.price = price;
@@ -61,12 +83,6 @@ public class SadGorod {
 
     }
 
-    public SadGorod(SadGorod good)
-    {
-        this.id=good.id;
-        this.name=good.name;
-        this.price=good.price;
-    }
 
     public Long getId() {
         return id;

@@ -47,6 +47,8 @@ private final RepositoryBudSum repositoryBudSum;
               jsonObject.put("price", f.getPrice());
               jsonObject.put("id", f.getId());
               jsonObject.put("image", f.getImagePath());
+              jsonObject.put("description", f.getDescription());
+              jsonObject.put("pidCategory", f.getPidCategory());
 
               sampleArr.put(jsonObject);
           }
@@ -66,6 +68,8 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("price", f.getPrice());
                   jsonObject.put("id", f.getId());
                   jsonObject.put("image", f.getImagePath());
+                  jsonObject.put("description", f.getDescription());
+                  jsonObject.put("pidCategory", f.getPidCategory());
 
                   sampleArr.put(jsonObject);
               }
@@ -85,6 +89,8 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("price", f.getPrice());
                   jsonObject.put("id", f.getId());
                   jsonObject.put("image", f.getImagePath());
+                  jsonObject.put("description", f.getDescription());
+                  jsonObject.put("pidCategory", f.getPidCategory());
 
                   sampleArr.put(jsonObject);
               }
@@ -104,6 +110,8 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("price", f.getPrice());
                   jsonObject.put("id", f.getId());
                   jsonObject.put("image", f.getImagePath());
+                  jsonObject.put("description", f.getDescription());
+                  jsonObject.put("pidCategory", f.getPidCategory());
 
                   sampleArr.put(jsonObject);
               }
@@ -123,6 +131,8 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("price", f.getPrice());
                   jsonObject.put("id", f.getId());
                   jsonObject.put("image", f.getImagePath());
+                  jsonObject.put("description", f.getDescription());
+                  jsonObject.put("pidCategory", f.getPidCategory());
 
                   sampleArr.put(jsonObject);
               }
@@ -142,6 +152,8 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("price", f.getPrice());
                   jsonObject.put("id", f.getId());
                   jsonObject.put("image", f.getImagePath());
+                  jsonObject.put("description", f.getDescription());
+                  jsonObject.put("pidCategory", f.getPidCategory());
 
                   sampleArr.put(jsonObject);
               }

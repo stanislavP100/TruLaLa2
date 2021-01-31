@@ -20,6 +20,27 @@ public class Goods {
     @Column(name="imagePath")
     private  String imagePath;
 
+    @Column
+    private  String description;
+
+    @Column
+    private String pidCategory;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPidCategory() {
+        return pidCategory;
+    }
+
+    public void setPidCategory(String pidCategory) {
+        this.pidCategory = pidCategory;
+    }
 
     public String getCategoty() {
         return categoty;

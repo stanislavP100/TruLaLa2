@@ -8,15 +8,20 @@
 
 
 <form method="post" action="/changeProduct" enctype="multipart/form-data">
-    <input type="text"  th:value="${productToChange.name}"  name="name"  placeholder="name" title="name" />
 
-    <input type="text" th:value="${productToChange.price}" name="price" placeholder="price" title="price"/>
+    <input type="text"  th:value="${productToChange.pidCategory}"  name="pidCategory"  placeholder="pidCategory" title="pidCategory" /><br><br>
 
-    <input type="file" th:value="${productToChange.imagePath}" name="file"/>
+    <input type="text"  th:value="${productToChange.name}"  name="name"  placeholder="name" title="name" /><br><br>
 
-    <img th:src="'/Tmp/' + ${productToChange.imagePath}" width="80px" height="80px"/>
+    <input type="text" th:value="${productToChange.price}" name="price" placeholder="price" title="price"/><br><br>
 
-    <button type="submit">Change</button>
+    <input type="text"  th:value="${productToChange.description}"  name="description"  placeholder="description" title="description" /><br><br>
+
+    <input type="file" th:value="${productToChange.imagePath}" name="file"/><br><br>
+
+    <img th:src="'/Tmp/' + ${productToChange.imagePath}" width="80px" height="80px"/><br><br>
+
+    <button type="submit">Change</button><br><br>
 </form>
 
 <form method="post" action="/deleteProduct">

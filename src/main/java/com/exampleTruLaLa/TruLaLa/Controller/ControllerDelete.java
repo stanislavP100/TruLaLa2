@@ -96,6 +96,8 @@ public class ControllerDelete {
     @PostMapping("/changeProduct")
 
     public String changeProductPost(@RequestParam String name,
+                                    @RequestParam(value = "pidCategory") String pidCategory,
+                                    @RequestParam(value = "description") String description,
                                     @RequestParam(value = "price") Float price,
                                     @RequestParam MultipartFile file, Model model)
     {
@@ -107,6 +109,8 @@ public class ControllerDelete {
 
                 santehnika.setName(name);
                 santehnika.setPrice(price);
+                santehnika.setDescription(description);
+                santehnika.setDescription(pidCategory);
 
                 if (file.isEmpty()) {
                     System.out.println("Santeh file is empty!!!!!");
@@ -131,6 +135,10 @@ public class ControllerDelete {
             case "budsumishi":{
                 budivelniSumish.setName(name);
 
+                budivelniSumish.setDescription(description);
+
+                budivelniSumish.setPidCategory(pidCategory);
+
                 budivelniSumish.setPrice(price);
 
                 if (file.isEmpty()) {
@@ -153,6 +161,10 @@ public class ControllerDelete {
 
             case "electroinstrument":{
                 electroinstrument.setName(name);
+
+                electroinstrument.setPidCategory(pidCategory);
+
+                electroinstrument.setDescription(description);
 
                 electroinstrument.setPrice(price);
 
@@ -178,6 +190,10 @@ public class ControllerDelete {
             case "instrument":{
                 instrumenty.setName(name);
 
+                instrumenty.setDescription(description);
+
+                instrumenty.setPidCategory(pidCategory);
+
                 instrumenty.setPrice(price);
 
                 if (file.isEmpty()) {
@@ -201,6 +217,10 @@ public class ControllerDelete {
             case "sadgorod":{
                 sadGorod.setName(name);
 
+                sadGorod.setDescription(description);
+
+                sadGorod.setPidCategory(pidCategory);
+
                 sadGorod.setPrice(price);
 
                 if (file.isEmpty()) {
@@ -223,6 +243,10 @@ public class ControllerDelete {
 
             case "goods": {
                 product.setName(name);
+
+                product.setPidCategory(pidCategory);
+
+                product.setDescription(description);
 
                 product.setPrice(price);
 

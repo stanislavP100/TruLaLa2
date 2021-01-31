@@ -11,45 +11,54 @@
 <!--<form method="get" action="/pos?category=santehnica"  >-->
 <!--    <button type="submit" value="santehnica" >Santehnica</button>-->
 <!--</form>-->
-<a href="https://budmagas.herokuapp.com/pos?category=vsedlyaremontu">
+<!--<a href="https://budmagas.herokuapp.com/pos?category=vsedlyaremontu">-->
+<a href="http://localhost:8080/pos?category=vsedlyaremontu">
     <button>Goods</button></a>
-<a href="https://budmagas.herokuapp.com/pos?category=santehnica">
+<a href="http://localhost:8080/pos?category=santehnica">
     <button>Santehnica</button></a>
-<a href="https://budmagas.herokuapp.com/pos?category=budsum">
+<a href="http://localhost:8080/pos?category=budsum">
     <button>BudivelniSumishi</button></a>
-<a href="https://budmagas.herokuapp.com/pos?category=electroinstrumenty">
+<a href="http://localhost:8080/pos?category=electroinstrumenty">
     <button>Electroinstrument</button></a>
-<a href="https://budmagas.herokuapp.com/pos?category=instrumenty">
+<a href="http://localhost:8080/pos?category=instrumenty">
     <button>Instrument</button></a>
-<a href="https://budmagas.herokuapp.com/pos?category=sadgorod">
+<a href="http://localhost:8080/pos?category=sadgorod">
     <button>SadGorod</button></a>
 
-<form method="post" action="/post" enctype="multipart/form-data">
-    <input type="text"  name="name"  placeholder="name" title="name" />
+<br>
+<br>
 
-    <input type="text" name="price" placeholder="price" title="price"/><br>
+<form method="post" action="/post" enctype="multipart/form-data">
 
     <input type="radio" id="VseDlyaRemontu" name="category" value="VseDlyaRemontu">
-    <label for="VseDlyaRemontu">VseDlyaRemontu</label><br>
+    <label for="VseDlyaRemontu">VseDlyaRemontu</label>
 
     <input type="radio" id="Electroinstrument" name="category" value="Electroinstrument">
-    <label for="Electroinstrument">Electroinstrument</label><br>
+    <label for="Electroinstrument">Electroinstrument</label>
 
     <input type="radio" id="Santehnica" name="category" value="Santehnica">
-    <label for="Santehnica">Santehnica</label><br>
+    <label for="Santehnica">Santehnica</label>
 
     <input type="radio" id="Instrumenty" name="category" value="Instrumenty">
-    <label for="Instrumenty">Instrumenty</label><br>
+    <label for="Instrumenty">Instrumenty</label>
 
     <input type="radio" id="BudivelniSumish" name="category" value="BudivelniSumish">
-    <label for="BudivelniSumish">BudivelniSumish</label><br>
+    <label for="BudivelniSumish">BudivelniSumish</label>
 
     <input type="radio" id="SadGorod" name="category" value="SadGorod">
-    <label for="SadGorod">SadGorod</label><br>
+    <label for="SadGorod">SadGorod</label><br><br>
 
-    <input type="file" name="file"/>
+    <input type="text" name="pidCategory" placeholder="pidCategory" title="pidCategory"/><br><br>
 
-    <button type="submit">Add Goods</button>
+    <input type="text"  name="name"  placeholder="name" title="name" /><br><br>
+
+    <input type="text" name="price" placeholder="price" title="price"/><br><br>
+
+    <input type="text" name="description" placeholder="description" title="description"/><br><br>
+
+    <input type="file" name="file"/><br><br>
+
+    <button type="submit">Add Goods</button><br><br>
 </form>
 
 
@@ -60,6 +69,8 @@
         <th bgcolor="#f0f8ff"> Name </th>
         <th bgcolor="#f0f8ff"> Price </th>
         <th bgcolor="#f0f8ff">Category </th>
+        <th bgcolor="#f0f8ff">PidCategory </th>
+        <th bgcolor="#f0f8ff">Description </th>
         <th bgcolor="#f0f8ff"> Image  </th>
         <th bgcolor="#f0f8ff">  </th>
     </tr>
@@ -67,10 +78,12 @@
     <tbody>
 
     <tr th:each="book, ist :  ${electro}" bgcolor="aqua"   >
-        <td width="200px" height="50px"><span  th:text="${book.id}" > Id </span></td>
-        <td width="200px" height="50px"><span th:text="${book.name}"> name </span></td>
-        <td width="200px" height="50px"><span th:text="${book.price}"> price </span></td>
-        <td width="200px" height="50px"><span th:text="${book.categoty}"> category </span></td>
+        <td width="150px" height="50px"><span  th:text="${book.id}" > Id </span></td>
+        <td width="150px" height="50px"><span th:text="${book.name}"> name </span></td>
+        <td width="150px" height="50px"><span th:text="${book.price}"> price </span></td>
+        <td width="150px" height="50px"><span th:text="${book.categoty}"> category </span></td>
+        <td width="150px" height="50px"><span th:text="${book.pidCategory}"> pidCategory </span></td>
+        <td width="150px" height="50px"><span th:text="${book.description}"> description </span></td>
         <td width="80px" height="80px"><img th:src="'/Tmp/' + ${book.imagePath}" width="80px" height="80px"/>
 <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 <!--           String idForProduktToChange44 v ControllerDelete povynen buty takiy samiy -->

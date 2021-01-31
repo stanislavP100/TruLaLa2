@@ -22,6 +22,28 @@ public class Santehnika {
 
     private String categoty ="santehnika";
 
+    @Column
+    private  String description;
+
+    @Column
+    private String pidCategory;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPidCategory() {
+        return pidCategory;
+    }
+
+    public void setPidCategory(String pidCategory) {
+        this.pidCategory = pidCategory;
+    }
+
     public Santehnika (String name, Float price, String imagePath, String category) {
         this.name = name;
         this.price = price;

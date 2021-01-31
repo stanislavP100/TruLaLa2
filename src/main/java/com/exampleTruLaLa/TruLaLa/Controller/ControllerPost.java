@@ -86,15 +86,19 @@ switch (category){
 
     public String methodPost(@RequestParam(defaultValue = "no name") String name,
                              @RequestParam(value = "price", defaultValue = "0.00f") Float price,
+                             @RequestParam(value = "pidCategory", defaultValue = "instrument") String pidCategory,
+                             @RequestParam(value = "description", defaultValue = "") String description,
                              @RequestParam(value = "category", defaultValue = "VseDlyaRemontu") String category,
                              @RequestParam MultipartFile file,Model model){
-
+        System.out.println(description+" "+pidCategory);
         switch (category){
             case "VseDlyaRemontu" :{ Goods goods = new Goods();
                                      goods.setName(name);
                                      goods.setPrice(price);
+                                     goods.setDescription(description);
+                                     goods.setPidCategory(pidCategory);
                                  if(file.isEmpty()){
-                                     goods.setImagePath("bol.jpeg");
+                                     goods.setImagePath("noImage.png");
                                      repositoryGoods.save(goods);
                                      model.addAttribute("electro", repositoryGoods.findAll());
                                      return "index";}
@@ -106,9 +110,11 @@ switch (category){
                                      return "index";}
             case "Electroinstrument" :{ Electroinstrument electroinstrument = new Electroinstrument();
                                         electroinstrument.setName(name);
+                                        electroinstrument.setDescription(description);
+                                        electroinstrument.setPidCategory(pidCategory);
                                         electroinstrument.setPrice(price);
                                  if(file.isEmpty()){
-                                        electroinstrument.setImagePath("bol.jpeg");
+                                        electroinstrument.setImagePath("noImage.png");
                                         repositoryElectroTools.save(electroinstrument);
                                         model.addAttribute("electro", repositoryElectroTools.findAll());
                                         return "index";}
@@ -120,9 +126,11 @@ switch (category){
                                         return "index";}
             case "BudivelniSumish" :{   BudivelniSumish electroinstrument = new BudivelniSumish();
                                         electroinstrument.setName(name);
+                                        electroinstrument.setName(name);
+                                        electroinstrument.setDescription(description);
                                         electroinstrument.setPrice(price);
                                  if(file.isEmpty()){
-                                        electroinstrument.setImagePath("bol.jpeg");
+                                        electroinstrument.setImagePath("noImage.png");
                                         repositoryBudSum.save(electroinstrument);
                                         model.addAttribute("electro", repositoryBudSum.findAll());
                                         return "index";}
@@ -134,6 +142,8 @@ switch (category){
                                         return "index";}
             case "Santehnica" :{   Santehnika electroinstrument = new Santehnika();
                                         electroinstrument.setName(name);
+                                        electroinstrument.setName(name);
+                                        electroinstrument.setDescription(description);
                                         electroinstrument.setPrice(price);
                                  if(file.isEmpty()){
                                         electroinstrument.setImagePath("bol.jpeg");
@@ -149,9 +159,11 @@ switch (category){
 
             case "Instrumenty" :{   Instrumenty electroinstrument = new Instrumenty();
                                         electroinstrument.setName(name);
+                                        electroinstrument.setName(name);
+                                        electroinstrument.setDescription(description);
                                         electroinstrument.setPrice(price);
                                 if(file.isEmpty()){
-                                        electroinstrument.setImagePath("bol.jpeg");
+                                        electroinstrument.setImagePath("noImage.png");
                                         repositoryInstrument.save(electroinstrument);
                                         model.addAttribute("electro", repositoryInstrument.findAll());
                                         return "index";}
@@ -164,9 +176,11 @@ switch (category){
 
             case "SadGorod" :{   SadGorod electroinstrument = new SadGorod();
                                         electroinstrument.setName(name);
+                                        electroinstrument.setName(name);
+                                        electroinstrument.setDescription(description);
                                         electroinstrument.setPrice(price);
                                if(file.isEmpty()){
-                                        electroinstrument.setImagePath("bol.jpeg");
+                                        electroinstrument.setImagePath("noImage.png");
                                         repositorySadGorod.save(electroinstrument);
                                         model.addAttribute("electro", repositorySadGorod.findAll());
                                         return "index";}
@@ -177,19 +191,6 @@ switch (category){
                                         model.addAttribute("electro", repositorySadGorod.findAll());
                                         return "index";}
         }
-
-
-
-
-       // model.addAttribute("electro", repositoryGoods.findAll());
-
-//        if (file.isEmpty())
-//
-//            return "index";
-//
-//            storageService.store(file);
-//
-
 
         return "index";
     }
