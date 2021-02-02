@@ -89,7 +89,7 @@ switch (category){
                              @RequestParam(value = "pidCategory", defaultValue = "instrument") String pidCategory,
                              @RequestParam(value = "description", defaultValue = "") String description,
                              @RequestParam(value = "category", defaultValue = "VseDlyaRemontu") String category,
-                             @RequestParam MultipartFile file,Model model){
+                             @RequestParam MultipartFile file,Model model) throws Exception {
         System.out.println(description+" "+pidCategory);
         switch (category){
             case "VseDlyaRemontu" :{ Goods goods = new Goods();

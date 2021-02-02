@@ -45,9 +45,6 @@ WebConfigurer wc=new
 
         img=simpleResizeImage(img, 500);// !!!!!! image size here
 
-
-
-
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (file.isEmpty()) {
