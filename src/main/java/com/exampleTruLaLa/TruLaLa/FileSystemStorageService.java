@@ -7,8 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-
+import org.imgscalr.Scalr;
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -35,7 +39,15 @@ WebConfigurer wc=new
     }
 
     @Override
-    public void store(MultipartFile file) {
+    public void store(MultipartFile file) throws Exception {
+
+        BufferedImage img=convertToImage(file);
+
+        img=simpleResizeImage(img, 500);// !!!!!! image size here
+
+
+
+
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (file.isEmpty()) {
@@ -47,16 +59,21 @@ WebConfigurer wc=new
                         "Cannot store file with relative path outside current directory "
                                 + filename);
             }
-            try (InputStream inputStream = file.getInputStream()) {
-                Files.copy(inputStream, this.rootLocation.resolve(filename),
-                        StandardCopyOption.REPLACE_EXISTING);
-            }
+
+            File outputfile = new File(this.rootLocation+"/"+ filename);
+            ImageIO.write(img, "jpeg", outputfile);
+
+
+//            try (InputStream inputStream =file.getInputStream()) {
+//                Files.copy(inputStream, this.rootLocation.resolve(filename),
+//                        StandardCopyOption.REPLACE_EXISTING);
+//            }
+
         }
         catch (IOException e) {
             throw new RuntimeException("Failed to store file " + filename, e);
         }
     }
-
     @Override
     public Stream<Path> loadAll() {
         try {
@@ -108,4 +125,13 @@ WebConfigurer wc=new
             throw new RuntimeException("Could not initialize storage", e);
         }
     }
+    private static BufferedImage convertToImage(MultipartFile file) throws IOException {
+        InputStream in = new ByteArrayInputStream(file.getBytes());
+        return ImageIO.read(in);
+    }
+
+    static BufferedImage simpleResizeImage(BufferedImage originalImage, int targetWidth) throws Exception {
+        return Scalr.resize(originalImage, targetWidth);
+    }
+
 }

@@ -113,7 +113,7 @@ public class ControllerDelete {
                 santehnika.setDescription(pidCategory);
 
                 if (file.isEmpty()) {
-                    System.out.println("Santeh file is empty!!!!!");
+
                     repositorySantehnica.save(santehnika);
                     model.addAttribute("electro", repositorySantehnica.findAll()); //storageService.loadAll());//.map(
                     return "index";

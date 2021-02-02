@@ -27,7 +27,7 @@ public class ControllerImage {
     @GetMapping(value = "/get-image", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte [] getImageWithMediaType(@RequestParam String image) throws IOException {
 
-        System.out.println(image);
+      //  System.out.println(image);
         WebConfigurer wc=new
                 WebConfigurer();
 
@@ -35,7 +35,7 @@ public class ControllerImage {
         //   final InputStream in = getClass().getResourceAsStream("/static/persik.jpeg");
         //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         /////// http://localhost:8080/get-image?im=bol.jpeg
-        System.out.println(Base64.encodeBase64URLSafeString( Files.readAllBytes(Paths.get(str +"/" + image))));
+       // System.out.println(Base64.encodeBase64URLSafeString( Files.readAllBytes(Paths.get(str +"/" + image))));
         return  Files.readAllBytes(Paths.get(str +"/" + image));//!!! Rabotae!!!!!!!!!!!!!!!!!!
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //   System.out.println(in);

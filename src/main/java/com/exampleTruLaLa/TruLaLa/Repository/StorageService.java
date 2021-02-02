@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 public interface StorageService {
     void init();
 
-    void store(MultipartFile file);
+    void store(MultipartFile file) throws Exception;
 
     Stream<Path> loadAll();
 
