@@ -171,5 +171,28 @@ private final RepositoryBudSum repositoryBudSum;
 
 
 
+    @GetMapping ("/retrofittest")
+    public   String conte() {
+        JSONObject mainJsonObject = new JSONObject();
+        JSONArray sampleArr = new JSONArray();
+        List<Goods> goodsList = repositoryGoods.findAll();
+
+
+        for (Goods f : goodsList) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("name", f.getName());
+            jsonObject.put("price", f.getPrice());
+            jsonObject.put("id", f.getId());
+            jsonObject.put("image", f.getImagePath());
+            jsonObject.put("description", f.getDescription());
+            jsonObject.put("pidCategory", f.getPidCategory());
+
+            sampleArr.put(jsonObject);
+        }
+    //    mainJsonObject.put("Instrumenty", sampleArr);
+
+        return sampleArr.toString();
+//return "kuku";
+    }
 
 }

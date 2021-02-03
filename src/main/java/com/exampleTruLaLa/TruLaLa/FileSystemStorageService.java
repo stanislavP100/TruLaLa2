@@ -43,7 +43,7 @@ WebConfigurer wc=new
 
         BufferedImage img=convertToImage(file);
 
-        img=simpleResizeImage(img, 500);// !!!!!! image size here
+        img=simpleResizeImage(img, 700);// !!!!!! image size here
 
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         try {
