@@ -4,6 +4,7 @@ import com.exampleTruLaLa.TruLaLa.Entity.*;
 import com.exampleTruLaLa.TruLaLa.Repository.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -172,7 +173,7 @@ private final RepositoryBudSum repositoryBudSum;
 
 
     @GetMapping ("/retrofittest")
-    public   String conte() {
+    public   String conte(Model model) {
         JSONObject mainJsonObject = new JSONObject();
         JSONArray sampleArr = new JSONArray();
         List<Goods> goodsList = repositoryGoods.findAll();
@@ -191,8 +192,13 @@ private final RepositoryBudSum repositoryBudSum;
         }
     //    mainJsonObject.put("Instrumenty", sampleArr);
 
+   //     System.out.println(sampleArr.toString());
+
+        model.addAttribute("ooo", sampleArr.toString());
+
+     //   String ff=sampleArr.toString();
         return sampleArr.toString();
-//return "kuku";
+//return "index";
     }
 
 }
