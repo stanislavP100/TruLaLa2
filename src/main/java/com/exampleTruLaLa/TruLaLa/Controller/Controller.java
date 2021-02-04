@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@org.springframework.stereotype.Controller
+@RestController
 public class Controller {
 
 private final RepositoryGoods repositoryGoods;
@@ -55,10 +55,10 @@ private final RepositoryBudSum repositoryBudSum;
               sampleArr.put(jsonObject);
           }
           mainJsonObject.put("VseDlyaRemontu", sampleArr);
-          model.addAttribute("ooo",mainJsonObject.toString());
 
-        //  return mainJsonObject.toString();
-      return "index2";
+
+          return mainJsonObject.toString();
+
           }
 ////////////////////////////////////////////////////////////////////////////////////////////////
           case "electroinstrument" : {JSONObject mainJsonObject = new JSONObject();
@@ -221,8 +221,8 @@ private final RepositoryBudSum repositoryBudSum;
         model.addAttribute("ooo", sampleArr.toString());
 
      //   String ff=sampleArr.toString();
-      //  return sampleArr.toString();
-return "index2";
+        return sampleArr.toString();
+//return "index2";
     }
 
 }
