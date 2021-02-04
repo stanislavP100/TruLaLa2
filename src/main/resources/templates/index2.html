@@ -6,6 +6,11 @@
 </head>
 <body>
 <g th:text="${ooo}" ></g>
-
+<tr th:each="book, ist :  ${electro}" bgcolor="aqua"   >
+    <td width="150px" height="50px"><span  th:text="${book.id}" > Id </span></td>
+    <td width="150px" height="50px"><span th:text="${book.name}"> name </span></td>
+<!--    <td width="150px" height="50px"><span th:text="${book.price}"> price </span></td>-->
+<!--    <td width="150px" height="50px"><span th:text="${book.categoty}"> category </span></td>-->
+</tr>
 </body>
 </html>

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@org.springframework.stereotype.Controller
 public class Controller {
 
 private final RepositoryGoods repositoryGoods;
@@ -32,7 +32,8 @@ private final RepositoryBudSum repositoryBudSum;
 
     @GetMapping ("/")
   public   String cont(@RequestParam (defaultValue = "vsedlyaremontu")
-                                   String category)
+                                   String category,
+                       Model model)
     {
 
       switch (category) {
@@ -54,9 +55,11 @@ private final RepositoryBudSum repositoryBudSum;
               sampleArr.put(jsonObject);
           }
           mainJsonObject.put("VseDlyaRemontu", sampleArr);
+          model.addAttribute("ooo",mainJsonObject.toString());
 
-          return mainJsonObject.toString();
-      }
+        //  return mainJsonObject.toString();
+      return "index2";
+          }
 ////////////////////////////////////////////////////////////////////////////////////////////////
           case "electroinstrument" : {JSONObject mainJsonObject = new JSONObject();
               JSONArray sampleArr = new JSONArray();
@@ -163,10 +166,31 @@ private final RepositoryBudSum repositoryBudSum;
               return mainJsonObject.toString();
           }
    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-          default: break;
+          default:{JSONObject mainJsonObject = new JSONObject();
+              JSONArray sampleArr = new JSONArray();
+              List<Goods> goodsList = repositoryGoods.findAll();
+              System.out.println("UUUUUUUUUUUUUUUUUUU");
+
+              for (Goods f : goodsList) {
+                  JSONObject jsonObject = new JSONObject();
+                  jsonObject.put("name", f.getName());
+                  jsonObject.put("price", f.getPrice());
+                  jsonObject.put("id", f.getId());
+                  jsonObject.put("image", f.getImagePath());
+                  jsonObject.put("description", f.getDescription());
+                  jsonObject.put("pidCategory", f.getPidCategory());
+
+                  sampleArr.put(jsonObject);
+              }
+              mainJsonObject.put("Instrumenty", sampleArr);
+
+              model.addAttribute("ooo",sampleArr.toString());
+
+              return "index2";
+          }
       }
 
-      return "error55";
+    //  return "error55";
 
     }
 
@@ -197,8 +221,8 @@ private final RepositoryBudSum repositoryBudSum;
         model.addAttribute("ooo", sampleArr.toString());
 
      //   String ff=sampleArr.toString();
-        return sampleArr.toString();
-//return "index";
+      //  return sampleArr.toString();
+return "index2";
     }
 
 }

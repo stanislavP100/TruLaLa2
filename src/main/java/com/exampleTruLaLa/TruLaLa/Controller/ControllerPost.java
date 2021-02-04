@@ -49,6 +49,7 @@ public class ControllerPost {
 switch (category){
     case "santehnica":
     {
+
     model.addAttribute("electro",repositorySantehnica.findAll());
     return "index";
     }
