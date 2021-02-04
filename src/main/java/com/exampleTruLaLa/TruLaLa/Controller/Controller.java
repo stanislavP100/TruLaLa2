@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -196,8 +197,10 @@ private final RepositoryBudSum repositoryBudSum;
 
 
 
-    @GetMapping ("/retrofittest")
-    public   String conte(Model model) {
+    @GetMapping (value = "/retrofittest", produces = "text/plain;charset=UTF-8")
+    public   String conte( HttpServletResponse response) {
+        response.setCharacterEncoding("utf-8");
+
         JSONObject mainJsonObject = new JSONObject();
         JSONArray sampleArr = new JSONArray();
         List<Goods> goodsList = repositoryGoods.findAll();
@@ -218,10 +221,10 @@ private final RepositoryBudSum repositoryBudSum;
 
    //     System.out.println(sampleArr.toString());
 
-        model.addAttribute("ooo", sampleArr.toString());
-
+      //  model.addAttribute("ooo", sampleArr.toString());
+return sampleArr.toString();
      //   String ff=sampleArr.toString();
-        return sampleArr.toString();
+       // return "ИИИИИИИИИИИИИИИИИИИИИИИИИ";// sampleArr.toString();
 //return "index2";
     }
 
