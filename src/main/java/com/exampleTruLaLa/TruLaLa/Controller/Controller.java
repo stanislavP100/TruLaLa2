@@ -167,28 +167,8 @@ private final RepositoryBudSum repositoryBudSum;
               return mainJsonObject.toString();
           }
    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-          default:{JSONObject mainJsonObject = new JSONObject();
-              JSONArray sampleArr = new JSONArray();
-              List<Goods> goodsList = repositoryGoods.findAll();
-              System.out.println("UUUUUUUUUUUUUUUUUUU");
-
-              for (Goods f : goodsList) {
-                  JSONObject jsonObject = new JSONObject();
-                  jsonObject.put("name", f.getName());
-                  jsonObject.put("price", f.getPrice());
-                  jsonObject.put("id", f.getId());
-                  jsonObject.put("image", f.getImagePath());
-                  jsonObject.put("description", f.getDescription());
-                  jsonObject.put("pidCategory", f.getPidCategory());
-
-                  sampleArr.put(jsonObject);
-              }
-              mainJsonObject.put("Instrumenty", sampleArr);
-
-              model.addAttribute("ooo",sampleArr.toString());
-
-              return "index2";
-          }
+          default:
+              return  "error55";
       }
 
     //  return "error55";
