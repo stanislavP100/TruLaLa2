@@ -31,15 +31,14 @@ private final RepositoryBudSum repositoryBudSum;
     }
 
 
-    @GetMapping ("/")
+    @GetMapping (value = "/", produces = "text/plain;charset=UTF-8")
   public   String cont(@RequestParam (defaultValue = "vsedlyaremontu")
-                                   String category,
-                       Model model)
+                                   String category)
     {
 
       switch (category) {
      /////////////////////////////////////////////////////////////////////////////////////
-          case "vsedlyaremontu" : {JSONObject mainJsonObject = new JSONObject();
+          case "vsedlyaremontu" : {//JSONObject mainJsonObject = new JSONObject();
           JSONArray sampleArr = new JSONArray();
           List<Goods> goodsList = repositoryGoods.findAll();
 
@@ -55,15 +54,15 @@ private final RepositoryBudSum repositoryBudSum;
 
               sampleArr.put(jsonObject);
           }
-          mainJsonObject.put("VseDlyaRemontu", sampleArr);
+        //  mainJsonObject.put("VseDlyaRemontu", sampleArr);
 
 
-          return mainJsonObject.toString();
+          return sampleArr.toString();
 
           }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-          case "electroinstrument" : {JSONObject mainJsonObject = new JSONObject();
-              JSONArray sampleArr = new JSONArray();
+          case "electroinstrument" : {//JSONObject mainJsonObject = new JSONObject();
+              JSONArray sampleArrE = new JSONArray();
               List<Electroinstrument> goodsList = repositoryElektroTools.findAll();
 
 
@@ -76,15 +75,15 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("description", f.getDescription());
                   jsonObject.put("pidCategory", f.getPidCategory());
 
-                  sampleArr.put(jsonObject);
+                  sampleArrE.put(jsonObject);
               }
-              mainJsonObject.put("Electroinstrument", sampleArr);
+           //   mainJsonObject.put("Electroinstrument", sampleArrE);
 
-              return mainJsonObject.toString();
+              return sampleArrE.toString();
           }
 ///////////////////////////////////////////////////////////////////////////
           case "sadgorod" : {JSONObject mainJsonObject = new JSONObject();
-              JSONArray sampleArr = new JSONArray();
+              JSONArray sampleArrSad = new JSONArray();
               List<SadGorod> goodsList = repositorySadGorod.findAll();
 
 
@@ -97,15 +96,15 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("description", f.getDescription());
                   jsonObject.put("pidCategory", f.getPidCategory());
 
-                  sampleArr.put(jsonObject);
+                  sampleArrSad.put(jsonObject);
               }
-              mainJsonObject.put("SadGorod", sampleArr);
+              mainJsonObject.put("SadGorod", sampleArrSad);
 
               return mainJsonObject.toString();
           }
 ////////////////////////////////////////////////////////////////////////////
-          case "budsumishi" : {JSONObject mainJsonObject = new JSONObject();
-              JSONArray sampleArr = new JSONArray();
+          case "budsumishi" : {//JSONObject mainJsonObject = new JSONObject();
+              JSONArray sampleArrB = new JSONArray();
               List<BudivelniSumish> goodsList = repositoryBudSum.findAll();
 
 
@@ -118,15 +117,15 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("description", f.getDescription());
                   jsonObject.put("pidCategory", f.getPidCategory());
 
-                  sampleArr.put(jsonObject);
+                  sampleArrB.put(jsonObject);
               }
-              mainJsonObject.put("BudivelniSumishi", sampleArr);
+            //  mainJsonObject.put("BudivelniSumishi", sampleArrB);
 
-              return mainJsonObject.toString();
+              return sampleArrB.toString();
           }
   //////////////////////////////////////////////////////////////////////////////////////////////////////
-          case "santehnica" : {JSONObject mainJsonObject = new JSONObject();
-              JSONArray sampleArr = new JSONArray();
+          case "santehnica" : {//JSONObject mainJsonObject = new JSONObject();
+              JSONArray sampleArrSan = new JSONArray();
               List<Santehnika> goodsList = repositorySantehnica.findAll();
 
 
@@ -139,15 +138,15 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("description", f.getDescription());
                   jsonObject.put("pidCategory", f.getPidCategory());
 
-                  sampleArr.put(jsonObject);
+                  sampleArrSan.put(jsonObject);
               }
-              mainJsonObject.put("Santehnica", sampleArr);
+             // mainJsonObject.put("Santehnica", sampleArrSan);
 
-              return mainJsonObject.toString();
+              return sampleArrSan.toString();
           }
 //////////////////////////////////////////////////////////////////////////////////////////////////
-          case "instrumenty" : {JSONObject mainJsonObject = new JSONObject();
-              JSONArray sampleArr = new JSONArray();
+          case "instrumenty" : {//JSONObject mainJsonObject = new JSONObject();
+              JSONArray sampleArrI = new JSONArray();
               List<Instrumenty> goodsList = repositoryInstrument.findAll();
 
 
@@ -160,11 +159,11 @@ private final RepositoryBudSum repositoryBudSum;
                   jsonObject.put("description", f.getDescription());
                   jsonObject.put("pidCategory", f.getPidCategory());
 
-                  sampleArr.put(jsonObject);
+                  sampleArrI.put(jsonObject);
               }
-              mainJsonObject.put("Instrumenty", sampleArr);
+            //  mainJsonObject.put("Instrumenty", sampleArrI);
 
-              return mainJsonObject.toString();
+              return sampleArrI.toString();
           }
    /////////////////////////////////////////////////////////////////////////////////////////////////////////
           default:
